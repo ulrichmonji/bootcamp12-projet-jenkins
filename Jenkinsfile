@@ -65,6 +65,9 @@ pipeline {
       }
 
       stage ('Login and Push Image on docker hub') {
+       when {
+           expression { GIT_BRANCH == 'origin/main' }
+       }        
           agent any
           steps {
              script {
